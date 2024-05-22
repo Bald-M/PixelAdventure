@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Position2D
+
+export(PackedScene) var enemyScene
+
+var currentEnemyNode = null
+var spawnOnNextTick = false
+
+func _ready():
+	pass
+	
+"
+
+[node name="EnenmySpawner" type="Position2D"]
+script = SubResource( 1 )
+enemyScene = ExtResource( 2 )

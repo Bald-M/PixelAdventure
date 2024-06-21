@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/Clouds.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GameCamera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Flag.tscn" type="PackedScene" id=4]
+[ext_resource path="res://DecorativeTileMap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TileMap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/BaseLevel.gd" type="Script" id=7]
+[ext_resource path="res://scenes/UI/MainHUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/UI/LevelComplete.tscn" type="PackedScene" id=9]
+
+[node name="BaseLevel" type="Node" groups=["base_level"]]
+script = ExtResource( 7 )
+levelCompleteScene = ExtResource( 9 )
+
+[node name="MainHUD" parent="." instance=ExtResource( 8 )]
+
+[node name="GameCamera" parent="." instance=ExtResource( 3 )]
+current = true
+
+[node name="Clouds" parent="GameCamera" instance=ExtResource( 1 )]
+
+[node name="Flag" parent="." instance=ExtResource( 4 )]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Collectbles" type="Node2D" parent="."]
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="PlayerRoot" type="Node2D" parent="."]
+
+[node name="Player" parent="PlayerRoot" instance=ExtResource( 2 )]
+
+[node name="DecorativeTileMap" parent="." instance=ExtResource( 5 )]
+
+[node name="TileMap" parent="." instance=ExtResource( 6 )]
